@@ -134,14 +134,32 @@ export default function Home() {
           </a>
         </div>
 
+        
         <div className="village-wrap">
+          {/* Il·lustració del poble nadalenc */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             className="village"
             src="/christmas-village.png"
             alt="Poble nadalenc nevat amb casetes il·luminades, avets i regals"
           />
+
+          {/* Fum animat de les dues xemeneies */}
+          <div className="chimney-smoke smoke-left" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+
+          <div className="chimney-smoke smoke-right" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
         </div>
+
 
         <div className="hero-bottom">
           <span>✦</span>
