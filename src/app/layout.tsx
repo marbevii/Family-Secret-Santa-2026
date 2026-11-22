@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/christmas-village.png",
+        url: "/christmas-village.png?v=3",
         width: 1536,
         height: 1024,
         alt: "Poble nadalenc de l'Amic Invisible 2026",
