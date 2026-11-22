@@ -140,7 +140,7 @@ export default function Home() {
 
         <div className="hero-bottom">
           <span>✦</span>
-          FET AMB AMOR PER A LA FAMÍLIA
+          FET AMB AMOR PER A LA MAR
           <span>✦</span>
         </div>
       </section>
