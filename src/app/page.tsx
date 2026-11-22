@@ -136,9 +136,10 @@ export default function Home() {
 
         
         
+
         <div className="village-wrap">
           <div className="village-scene">
-            {/* Il·lustració del poble nadalenc */}
+            {/* Imatge del poble */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               className="village"
@@ -146,21 +147,15 @@ export default function Home() {
               alt="Poble nadalenc nevat amb casetes il·luminades, avets i regals"
             />
 
-            {/* Fum de les dues xemeneies */}
-            <div
-              className="chimney-smoke smoke-left"
-              aria-hidden="true"
-            >
+            {/* Fum animat */}
+            <div className="chimney-smoke smoke-left" aria-hidden="true">
               <span />
               <span />
               <span />
               <span />
             </div>
 
-            <div
-              className="chimney-smoke smoke-right"
-              aria-hidden="true"
-            >
+            <div className="chimney-smoke smoke-right" aria-hidden="true">
               <span />
               <span />
               <span />
@@ -168,6 +163,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+
 
 
 
