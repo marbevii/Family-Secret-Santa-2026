@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -46,19 +45,13 @@ export default function Home() {
       const result: RevealResult = await response.json();
 
       if (!response.ok || !result.recipient) {
-        throw new Error(
-          result.error ?? "No s'ha pogut completar la consulta"
-        );
+        throw new Error(result.error ?? "No s'ha pogut completar la consulta");
       }
 
       setRecipient(result.recipient);
       setOpening(true);
     } catch (cause) {
-      setError(
-        cause instanceof Error
-          ? cause.message
-          : "Error inesperat"
-      );
+      setError(cause instanceof Error ? cause.message : "Error inesperat");
     } finally {
       setLoading(false);
     }
@@ -73,7 +66,7 @@ export default function Home() {
 
   return (
     <main className="christmas-page">
-      {/* NEU ANIMADA */}
+      {/* NEU ANIMADA — SENSE CANVIS */}
       <div className="snowfall" aria-hidden="true">
         {Array.from({ length: 34 }, (_, index) => (
           <span
@@ -88,73 +81,52 @@ export default function Home() {
         ))}
       </div>
 
-      {/* CAPÇALERA */}
+      {/* CAPÇALERA — SENSE CANVIS */}
       <header className="site-header">
-        <a
-          className="brand"
-          href="#inici"
-          aria-label="Amic Invisible 2026, inici"
-        >
+        <a className="brand" href="#inici" aria-label="Amic Invisible 2026, inici">
           <Snowflake />
           AMIC INVISIBLE{" "}
           <span className="brand-year">2026</span>
         </a>
-
-        <span className="header-tag">
-          ✦ Una tradició de família ✦
-        </span>
+        <span className="header-tag">✦ Una tradició de família ✦</span>
       </header>
 
-      {/* PORTADA */}
-      <section
-        className="hero"
-        id="inici"
-        aria-labelledby="hero-title"
-      >
+      {/* PORTADA — SENSE CANVIS */}
+      <section className="hero" id="inici" aria-labelledby="hero-title">
         <div className="hero-intro">
           <div className="eyebrow">
             <span>✧</span> ÉS TEMPS DE COMPARTIR <span>✧</span>
           </div>
-
           <h1 id="hero-title">
             La màgia de
             <br />
             <em>l&apos;Amic Invisible</em>
           </h1>
-
           <p>
             Un petit secret, una gran il·lusió.
             <br />
             Aquest Nadal, la sorpresa comença aquí.
           </p>
-
           <a className="hero-link" href="#descobreix">
             Descobreix el teu regal{" "}
             <span aria-hidden="true">↓</span>
           </a>
         </div>
 
-        
-        
-
         <div className="village-wrap">
           <div className="village-scene">
-            {/* Imatge del poble */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               className="village"
               src="/christmas-village.png"
               alt="Poble nadalenc nevat amb casetes il·luminades, avets i regals"
             />
-
-            {/* Fum animat */}
             <div className="chimney-smoke smoke-left" aria-hidden="true">
               <span />
               <span />
               <span />
               <span />
             </div>
-
             <div className="chimney-smoke smoke-right" aria-hidden="true">
               <span />
               <span />
@@ -164,9 +136,6 @@ export default function Home() {
           </div>
         </div>
 
-
-
-
         <div className="hero-bottom">
           <span>✦</span>
           FET AMB AMOR PER A LA FAMÍLIA
@@ -174,12 +143,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECCIÓ DEL REGAL */}
-      <section
-        className="reveal-section"
-        id="descobreix"
-        aria-labelledby="reveal-title"
-      >
+      {/* SECCIÓ DEL REGAL — NOU DISSENY */}
+      <section className="reveal-section" id="descobreix" aria-labelledby="reveal-title">
         <div className="section-decoration" aria-hidden="true">
           <Snowflake className="snowflake-decoration" />
           <span>✧</span>
@@ -187,36 +152,35 @@ export default function Home() {
         </div>
 
         <p className="eyebrow">EL TEU SECRET DE NADAL</p>
-
         <h2 id="reveal-title">
           Hi ha un regal
           <br />
           <em>esperant-te...</em>
         </h2>
-
         <p className="section-description">
           Introdueix el teu codi privat i descobreix
-          <br className="desktop-break" /> a qui faràs somriure
-          aquest Nadal.
+          <br className="desktop-break" /> a qui faràs somriure aquest Nadal.
         </p>
 
-        <div className="reveal-card">
+        <div className={`reveal-card ${recipient ? "reveal-card--letter" : ""}`}>
           {!recipient ? (
             <>
-              <div
-                className="gift-illustration"
-                aria-hidden="true"
-              >
-                <span className="gift-bow">✦</span>
-                <span className="gift-lid" />
-                <span className="gift-box" />
+              <div className="magic-gift" aria-hidden="true">
+                <div className="magic-gift__glow" />
+                <span className="magic-gift__spark magic-gift__spark--one">✦</span>
+                <span className="magic-gift__spark magic-gift__spark--two">✧</span>
+                <span className="magic-gift__spark magic-gift__spark--three">✦</span>
+                <div className="magic-gift__bow">
+                  <span className="magic-gift__loop magic-gift__loop--left" />
+                  <span className="magic-gift__loop magic-gift__loop--right" />
+                  <span className="magic-gift__knot" />
+                </div>
+                <div className="magic-gift__lid" />
+                <div className="magic-gift__box" />
               </div>
 
               <form onSubmit={reveal}>
-                <label htmlFor="code">
-                  EL TEU CODI SECRET
-                </label>
-
+                <label htmlFor="code">EL TEU CODI SECRET</label>
                 <input
                   id="code"
                   name="code"
@@ -227,97 +191,70 @@ export default function Home() {
                   required
                   maxLength={80}
                   value={code}
-                  onChange={(event) =>
-                    setCode(event.target.value)
-                  }
+                  onChange={(event) => setCode(event.target.value)}
                 />
-
-                <button
-                  className="primary-button"
-                  type="submit"
-                  disabled={loading}
-                >
-                  {loading
-                    ? "Buscant la màgia..."
-                    : "Obre el teu regal"}{" "}
+                <button className="primary-button" type="submit" disabled={loading}>
+                  {loading ? "Buscant la màgia..." : "Obre el teu regal"}{" "}
                   <span aria-hidden="true">✧</span>
                 </button>
               </form>
 
-              {error && (
-                <p className="form-error" role="alert">
-                  {error}
-                </p>
-              )}
-
-              <p className="privacy-note">
-                ✧ El teu secret queda entre nosaltres ✧
-              </p>
+              {error && <p className="form-error" role="alert">{error}</p>}
+              <p className="privacy-note">✧ El teu secret queda entre nosaltres ✧</p>
             </>
           ) : (
-            <div
-              className={`result-content ${
-                opening ? "unwrapping" : ""
-              }`}
-              role="status"
-              aria-live="polite"
-            >
-              <div
-                className="gift-illustration opened"
-                aria-hidden="true"
-              >
-                <span className="gift-sparkle">
-                  ✧ ✦ ✧
-                </span>
-                <span className="gift-lid" />
-                <span className="gift-box" />
+            <div className={`magic-reveal ${opening ? "magic-reveal--opening" : ""}`}>
+              <div className="magic-gift magic-gift--opening" aria-hidden="true">
+                <div className="magic-gift__glow" />
+                <span className="magic-gift__spark magic-gift__spark--one">✦</span>
+                <span className="magic-gift__spark magic-gift__spark--two">✧</span>
+                <span className="magic-gift__spark magic-gift__spark--three">✦</span>
+                <div className="magic-gift__bow">
+                  <span className="magic-gift__loop magic-gift__loop--left" />
+                  <span className="magic-gift__loop magic-gift__loop--right" />
+                  <span className="magic-gift__knot" />
+                </div>
+                <div className="magic-gift__lid" />
+                <div className="magic-gift__box" />
               </div>
 
-              <p className="eyebrow">
-                LA MÀGIA JA ÉS AQUÍ!
-              </p>
+              <article className="christmas-letter" role="status" aria-live="polite">
+                <div className="christmas-letter__inner">
+                  <span className="christmas-letter__ornament" aria-hidden="true">✦ ❄ ✦</span>
+                  <p className="christmas-letter__eyebrow">UNA CARTA ESPECIAL PER A TU</p>
+                  <div className="christmas-letter__seal" aria-hidden="true">✧</div>
+                  <h3>La màgia del Nadal</h3>
+                  <p className="christmas-letter__intro">Aquest any tens una missió molt especial...</p>
+                  <div className="christmas-letter__rule" aria-hidden="true" />
+                  <p className="christmas-letter__label">Aquest Nadal faràs un regal a</p>
+                  <p className="christmas-letter__recipient">{recipient}</p>
+                  <div className="christmas-letter__rule" aria-hidden="true" />
+                  <p className="christmas-letter__message">
+                    Prepara una sorpresa plena d&apos;il·lusió i, sobretot, guarda el secret! ♡
+                  </p>
+                  <p className="christmas-letter__year">NADAL 2026</p>
+                </div>
+              </article>
 
-              <p className="result-label">
-                Aquest Nadal faràs un regal a...
-              </p>
-
-              <p className="recipient-name">
-                {recipient}
-              </p>
-
-              <p className="result-subtitle">
-                Guarda el secret i prepara una
-                sorpresa ben especial! ♡
-              </p>
-
-              <button
-                className="secondary-button"
-                type="button"
-                onClick={reset}
-              >
-                Amaga el resultat{" "}
-                <span aria-hidden="true">↗</span>
+              <button className="secondary-button" type="button" onClick={reset}>
+                Amaga el resultat <span aria-hidden="true">↗</span>
               </button>
             </div>
           )}
         </div>
 
         <p className="after-card">
-          No expliquis a ningú qui t&apos;ha
-          tocat... <span>🤫</span>
+          No expliquis a ningú qui t&apos;ha tocat... <span>🤫</span>
         </p>
       </section>
 
-      {/* PEU DE PÀGINA */}
+      {/* PEU DE PÀGINA — SENSE CANVIS */}
       <footer className="site-footer">
         <span className="footer-brand">
           <Snowflake className="snowflake-footer" />
           AMIC INVISIBLE 2026
         </span>
-
-        <span>
-          Que la màgia del Nadal ens uneixi sempre ♡
-        </span>
+        <span>Que la màgia del Nadal ens uneixi sempre ♡</span>
       </footer>
     </main>
   );
