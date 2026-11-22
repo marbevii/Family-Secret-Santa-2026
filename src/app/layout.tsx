@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 
 
+
 export const metadata: Metadata = {
   title: "Amic Invisible 2026 🎄",
   description:
@@ -15,14 +16,15 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/whatsapp-preview.png",
-        width: 1200,
-        height: 630,
-        alt: "Amic Invisible 2026 - Poble nadalenc",
+        url: "/christmas-village.png",
+        width: 1536,
+        height: 1024,
+        alt: "Poble nadalenc de l'Amic Invisible 2026",
       },
     ],
   },
 };
+
 
 
 export default function RootLayout({
