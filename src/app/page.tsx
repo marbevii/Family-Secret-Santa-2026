@@ -232,6 +232,10 @@ export default function Home() {
                   <p className="christmas-letter__recipient">{recipient}</p>
                   <div className="christmas-letter__rule" aria-hidden="true" />
                   <p className="christmas-letter__message">
+                    <strong style={{fontSize: '20px', color: '#840518', fontWeight: 'bold'}}>
+                      Recorda, 40€ mínim!
+                    </strong>
+                    <br/>
                     Prepara una sorpresa plena d&apos;il·lusió i, sobretot, guarda el secret! ♡
                   </p>
                   <p className="christmas-letter__year">NADAL 2026</p>
