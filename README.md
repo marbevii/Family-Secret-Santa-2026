@@ -32,7 +32,7 @@ It is a personal, non-commercial project and is not intended to operate as a com
 - **Responsive design:** Adapted for desktop and mobile devices.
 - **Social sharing metadata:** Open Graph metadata for link previews.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Technology | Purpose |
 |---|---|
@@ -45,7 +45,7 @@ It is a personal, non-commercial project and is not intended to operate as a com
 | Vercel | Deployment and hosting |
 | Git & GitHub | Version control and source code management |
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 Family-Secret-Santa-2026/
