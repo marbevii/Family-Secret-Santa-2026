@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { FormEvent, useState } from "react";
+import ChristmasMusic from "./ChristmasMusic";
 
 type RevealResult = { recipient?: string; error?: string };
 
@@ -66,6 +67,7 @@ export default function Home() {
 
   return (
     <main className="christmas-page">
+      <ChristmasMusic />
       {/* NEU ANIMADA — SENSE CANVIS */}
       <div className="snowfall" aria-hidden="true">
         {Array.from({ length: 34 }, (_, index) => (
