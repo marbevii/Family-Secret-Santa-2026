@@ -80,3 +80,46 @@ button, input { font: inherit; }
  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
  .snowfall { display: none; }
 }
+
+
+/* Flocs de neu personalitzats */
+
+.snowflake-icon {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  vertical-align: middle;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.section-decoration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+
+.snowflake-decoration {
+  width: 30px;
+  height: 30px;
+  margin-right: 0;
+}
+
+.section-decoration > span {
+  color: #e2bf87;
+  font-size: 22px;
+}
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.snowflake-footer {
+  width: 23px;
+  height: 23px;
+  margin-right: 0;
+}
